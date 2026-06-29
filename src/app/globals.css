@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0b1f33;
+
+  /* DataCamp-inspired palette: deep navy + bright green accent */
+  --color-navy-950: #05192d;
+  --color-navy-900: #0b2545;
+  --color-navy-700: #1c3a5e;
+  --color-navy-500: #3a5878;
+
+  --color-accent-500: #03ef8d;
+  --color-accent-600: #00c46a;
+  --color-accent-700: #019a55;
+
+  --color-surface: #f5f8fa;
+  --color-surface-dark: #eef2f6;
+  --color-border: #e1e8ef;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-700: var(--color-navy-700);
+  --color-navy-500: var(--color-navy-500);
+
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+
+  --color-surface: var(--color-surface);
+  --color-surface-dark: var(--color-surface-dark);
+  --color-border: var(--color-border);
+
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Long-form article typography, tuned to the navy/green palette */
+.prose-article {
+  --tw-prose-body: var(--color-navy-900);
+  --tw-prose-headings: var(--color-navy-950);
+  --tw-prose-lead: var(--color-navy-700);
+  --tw-prose-links: var(--color-accent-700);
+  --tw-prose-bold: var(--color-navy-950);
+  --tw-prose-counters: var(--color-navy-500);
+  --tw-prose-bullets: var(--color-accent-600);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-quotes: var(--color-navy-900);
+  --tw-prose-quote-borders: var(--color-accent-500);
+  --tw-prose-captions: var(--color-navy-500);
+  --tw-prose-code: var(--color-navy-950);
+  --tw-prose-th-borders: var(--color-border);
+  --tw-prose-td-borders: var(--color-border);
+}
+
+.prose-article a {
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent-600) 45%, transparent);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.prose-article a:hover {
+  border-color: var(--color-accent-700);
+}
+
+.prose-article :where(code):not(:where(pre code)) {
+  background: var(--color-surface-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  padding: 0.15em 0.4em;
+  font-weight: 500;
+  font-size: 0.875em;
+}
+
+.prose-article :where(code):not(:where(pre code))::before,
+.prose-article :where(code):not(:where(pre code))::after {
+  content: "";
+}
+
+/* Tighter prose rhythm — DataCamp uses compact, dense reading blocks */
+.prose-article :where(p):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.7;
+}
+
+.prose-article :where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  line-height: 1.65;
+}
+
+.prose-article :where(ul, ol):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+.prose-article :where(h3):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  margin-top: 1.4em;
+  margin-bottom: 0.4em;
+}
+
+.prose-article :where(h4):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+
+.prose-article :where(blockquote):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+.prose-article :where(table):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  font-size: 0.875em;
+}
+
+/* Scrollbar styling for sticky TOC */
+.toc-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.toc-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+}

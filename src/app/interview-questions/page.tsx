@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ArticleShell from "@/components/ArticleShell";
 import RapidFireQA from "@/components/RapidFireQA";
 import CodingQuestion from "@/components/CodingQuestion";
@@ -32,7 +33,7 @@ export default async function InterviewQuestionsPage() {
       <p>
         Short, sharp questions for testing recall — the kind interviewers use to gauge whether you
         truly understand core ideas or just recognize the syntax. They&rsquo;re grouped by the same
-        topics as the <a href="/concepts">Python Concepts</a> guide, so if one stumps you, you know
+        topics as the <Link href="/concepts">Python Concepts</Link> guide, so if one stumps you, you know
         exactly where to go back and review. Click a question to reveal its answer; try to answer
         in your head first.
       </p>
@@ -77,7 +78,7 @@ export default async function InterviewQuestionsPage() {
 
       <p>
         That&rsquo;s the full bank — but the real practice begins when you close the answers and
-        work through them cold. Revisit the <a href="/concepts">Python Concepts</a> guide for any
+        work through them cold. Revisit the <Link href="/concepts">Python Concepts</Link> guide for any
         topic that gave you trouble, then come back and try again in a week.
       </p>
     </ArticleShell>

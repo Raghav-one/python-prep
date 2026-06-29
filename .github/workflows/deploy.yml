@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          BASE_PATH: ""
+          BASE_PATH: "/python-prep"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
